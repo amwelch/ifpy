@@ -57,6 +57,8 @@ def extract(pcap_file):
         nids.run()
     except Exception, e:
         print "Exception ", pcap_file + " ", e
+        return
+
     data = []
     columns = ('name', 'bytes')
     for ip, byte in ips.iteritems():
@@ -79,4 +81,5 @@ if __name__ == "__main__":
     for f in sys.argv[1:]:
         print f
         df = extract(f)
-        print df.head(10)
+        if df is not None:
+             print df.head(10)
