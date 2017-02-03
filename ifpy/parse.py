@@ -1,6 +1,7 @@
 import dpkt
 import humanfriendly
 import nids
+import sys
 import pandas as pd
 import socket
 
@@ -73,3 +74,8 @@ def extract(pcap_file):
     df = df.sort('bytes', ascending=False)
     df['human_bytes'] = df.apply(lambda row: humanfriendly.format_size(row['bytes']), axis=1)
     return df
+
+if __name__ == "__main__":
+    import ipdb; ipdb.set_trace()
+    df = extract(sys.argv[1])
+    print df
