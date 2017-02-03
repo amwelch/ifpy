@@ -76,6 +76,5 @@ def extract(pcap_file):
     return df
 
 if __name__ == "__main__":
-    import ipdb; ipdb.set_trace()
     df = extract(sys.argv[1])
-    print df
+    print df.head(10)
