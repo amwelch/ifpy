@@ -76,5 +76,7 @@ def extract(pcap_file):
     return df
 
 if __name__ == "__main__":
-    df = extract(sys.argv[1])
-    print df.head(10)
+    for f in sys.argv[1:]:
+        print f
+        df = extract(f)
+        print df.head(10)
